@@ -62,10 +62,18 @@ $('#submit').click(function () {
 
 var mathProblem = function () {
   var operators = ['+', '-', '/', '*'];
-  var randOperator = Math.floor(Math.random() * 4);
+  var randOperator = operators[Math.floor(Math.random() * 4)];
   var num1 = 1 + Math.floor(Math.random() * 9);
   var num2 = 1 + Math.floor(Math.random() * 9);
-  var problem = num1 + ' ' + operators[randOperator] + ' ' + num2;
+  var num3 = num1 * num2;
+  var problem;
+  if (randOperator == '/') {
+    problem = num3 + ' ' + randOperator + ' ' + num1;
+  } else if (num1 < num2) {
+    problem = num2 + ' ' + randOperator + ' ' + num1;
+  } else {
+    problem = num1 + ' ' + randOperator + ' ' + num2;
+  }
   $('#problem').html(problem);
   answer = Math.round(eval(problem) * 100) / 100;
 }
