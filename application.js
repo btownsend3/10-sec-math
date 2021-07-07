@@ -32,7 +32,6 @@ $('#play').click(function () {
   $('#submit').show();
   $('#timer').show();
   $('#problem').show();
-  $('#tip').hide();
   mathProblem();
   timer();
 });
